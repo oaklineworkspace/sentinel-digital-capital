@@ -22,31 +22,35 @@ export default function Navbar() {
               <button 
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 onMouseEnter={() => setIsDropdownOpen(true)}
-                className="flex items-center px-4 py-2 bg-gray-50 text-blue-900 rounded-lg border border-gray-200 hover:bg-gray-100 transition font-bold focus:outline-none"
+                className="flex items-center px-4 py-2 bg-emerald-50 text-emerald-900 rounded-lg border border-emerald-100 hover:bg-emerald-100 transition font-bold focus:outline-none"
               >
-                Menu
+                Explore Options
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
               </button>
               
               <div 
                 onMouseEnter={() => setIsDropdownOpen(true)}
                 onMouseLeave={() => setIsDropdownOpen(false)}
-                className={`absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-2xl py-3 z-50 transition-all duration-200 ${isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
+                className={`absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-2xl py-3 z-50 transition-all duration-200 ${isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
               >
-                <Link href="/about" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">About Sentinel</Link>
-                <Link href="/how-it-works" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">How It Works</Link>
+                <div className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">Investment Vehicles</div>
+                <Link href="/investment-plans" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">Fixed Yield Plans</Link>
+                <Link href="/investment-plans" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">Staking Rewards</Link>
+                <Link href="/investment-plans" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">DeFi Liquidity Pools</Link>
+                <Link href="/investment-plans" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">Institutional Treasury</Link>
+                
                 <div className="border-t border-gray-50 my-2 mx-4"></div>
-                <Link href="/investment-plans" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Investment Plans</Link>
-                <Link href="/security" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Security & Assets</Link>
-                <Link href="/faq" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Support FAQ</Link>
-                <Link href="/contact" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Contact Us</Link>
+                <div className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">Resources</div>
+                <Link href="/about" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">Company Heritage</Link>
+                <Link href="/security" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">Security Protocols</Link>
+                <Link href="/faq" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900">Help Center</Link>
               </div>
             </div>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/dashboard" className="px-5 py-2.5 rounded-lg border border-blue-900 text-blue-900 font-semibold hover:bg-blue-50 transition">Login</Link>
-            <Link href="/dashboard" className="px-5 py-2.5 rounded-lg bg-blue-900 text-white font-semibold hover:bg-blue-800 transition shadow-sm">Get Started</Link>
+            <Link href="/dashboard" className="px-5 py-2.5 rounded-lg border border-emerald-900 text-emerald-900 font-semibold hover:bg-emerald-50 transition">Login</Link>
+            <Link href="/dashboard" className="px-5 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition shadow-sm">Open Account</Link>
           </div>
 
           {/* Mobile menu button */}

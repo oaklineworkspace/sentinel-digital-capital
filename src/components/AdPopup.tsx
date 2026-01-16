@@ -16,40 +16,40 @@ export default function AdPopup() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="relative bg-white rounded-[2.5rem] shadow-2xl max-w-lg w-full overflow-hidden animate-in zoom-in-95 duration-300">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-300">
+      <div className="relative bg-white rounded-[2rem] shadow-2xl max-w-lg w-full overflow-hidden animate-in zoom-in-95 duration-300 mx-auto">
         <button 
           onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 z-10 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+          className="absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-white rounded-full transition-colors shadow-sm"
         >
-          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
         
-        <div className="relative h-64">
+        <div className="relative h-48 sm:h-64">
           <Image 
             src="/images/crypto/btc.png" 
             alt="Bitcoin Promo" 
             fill 
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent"></div>
-          <div className="absolute bottom-6 left-8 right-8">
-            <span className="px-3 py-1 bg-yellow-500 text-blue-950 text-[10px] font-black uppercase tracking-widest rounded-full">
+          <div className="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent"></div>
+          <div className="absolute bottom-4 left-6 right-6 sm:bottom-6 sm:left-8 sm:right-8">
+            <span className="px-3 py-1 bg-emerald-500 text-white text-[10px] font-black uppercase tracking-widest rounded-full">
               Limited Offer
             </span>
-            <h3 className="text-3xl font-black text-white mt-2">Claim Your $50 Welcome Bonus</h3>
+            <h3 className="text-2xl sm:text-3xl font-black text-white mt-2">Claim Your $50 Welcome Bonus</h3>
           </div>
         </div>
         
-        <div className="p-8">
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+        <div className="p-6 sm:p-8">
+          <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
             Start your digital asset journey today with Sentinel Digital. Secure, fast, and professional.
           </p>
           <button 
             onClick={() => setIsOpen(false)}
-            className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-blue-200"
+            className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-emerald-100"
           >
             Get Started Now
           </button>
