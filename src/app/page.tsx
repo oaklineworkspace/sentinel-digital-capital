@@ -1,25 +1,27 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import AdPopup from '../components/AdPopup';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Home() {
-  const heroBg = '/attached_assets/stock_images/modern_glass_office__470b88e7.jpg';
-  const tradersImg = '/attached_assets/stock_images/traders_in_office_fi_85db107a.jpg';
+  const heroBg = '/images/hero-team.png';
+  const tradersImg = '/images/hero-team.png';
   const cryptoPattern = '/attached_assets/stock_images/cryptocurrency_logos_9a7c121c.jpg';
 
   const currencies = [
-    { name: 'Bitcoin', symbol: 'BTC', price: '$42,500', change: '+2.4%' },
-    { name: 'Ethereum', symbol: 'ETH', price: '$2,250', change: '+1.8%' },
-    { name: 'Solana', symbol: 'SOL', price: '$98', change: '+5.2%' },
-    { name: 'Cardano', symbol: 'ADA', price: '$0.52', change: '-0.4%' },
-    { name: 'Polkadot', symbol: 'DOT', price: '$7.20', change: '+1.1%' },
-    { name: 'Chainlink', symbol: 'LINK', price: '$14.80', change: '+3.7%' },
+    { name: 'Bitcoin', symbol: 'BTC', price: '$42,500', change: '+2.4%', color: '#F7931A', icon: '/images/crypto/btc.png' },
+    { name: 'Ethereum', symbol: 'ETH', price: '$2,250', change: '+1.8%', color: '#627EEA', icon: '/images/crypto/eth.png' },
+    { name: 'Solana', symbol: 'SOL', price: '$98', change: '+5.2%', color: '#14F195', icon: '/images/crypto/sol.png' },
+    { name: 'Cardano', symbol: 'ADA', price: '$0.52', change: '-0.4%', color: '#0033AD', icon: '/images/crypto/ada.png' },
+    { name: 'Polkadot', symbol: 'DOT', price: '$7.20', change: '+1.1%', color: '#E6007A', icon: '/images/crypto/dot.png' },
+    { name: 'Chainlink', symbol: 'LINK', price: '$14.80', change: '+3.7%', color: '#2A5ADA', icon: '/images/crypto/link.png' },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-900">
       <Navbar />
+      <AdPopup />
 
       <main>
         {/* Hero Section */}
@@ -27,9 +29,9 @@ export default function Home() {
           <div className="absolute inset-0 z-0">
             <Image 
               src={heroBg} 
-              alt="Financial District" 
+              alt="Financial Experts Collaborating" 
               fill 
-              className="object-cover opacity-50 scale-105"
+              className="object-cover opacity-40 scale-105"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-950/60 to-blue-950"></div>
@@ -62,6 +64,9 @@ export default function Home() {
             <div className="flex animate-marquee space-x-12">
               {[...currencies, ...currencies].map((c, i) => (
                 <div key={i} className="flex items-center space-x-3">
+                  <div className="relative w-6 h-6">
+                    <Image src={c.icon} alt={c.name} fill className="object-contain" />
+                  </div>
                   <span className="font-bold text-white">{c.symbol}</span>
                   <span className="text-blue-200">{c.price}</span>
                   <span className={c.change.startsWith('+') ? 'text-green-400 font-bold' : 'text-red-400 font-bold'}>{c.change}</span>
@@ -83,7 +88,7 @@ export default function Home() {
                     alt="Professional trading team" 
                     width={800} 
                     height={600} 
-                    className="hover:scale-105 transition-transform duration-700"
+                    className="hover:scale-105 transition-transform duration-700 object-cover aspect-[4/3]"
                   />
                 </div>
                 <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-3xl shadow-2xl z-20 max-w-xs border border-gray-100">
@@ -128,8 +133,11 @@ export default function Home() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {currencies.map((c, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                  <p className="text-blue-400 font-bold mb-1">{c.symbol}</p>
+                <div key={i} className="group bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-all hover:-translate-y-2">
+                  <div className="relative w-16 h-16 mx-auto mb-6 transition-transform group-hover:scale-110">
+                    <Image src={c.icon} alt={c.name} fill className="object-contain" />
+                  </div>
+                  <p className="font-bold mb-1" style={{ color: c.color }}>{c.symbol}</p>
                   <p className="text-white font-black text-xl">{c.name}</p>
                 </div>
               ))}
