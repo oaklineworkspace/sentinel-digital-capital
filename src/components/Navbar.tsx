@@ -16,36 +16,32 @@ export default function Navbar() {
             <span className="text-2xl font-light text-gray-500 tracking-tight">DIGITAL</span>
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu - Consolidated Dropdown */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/about" className="text-gray-600 hover:text-blue-900 transition font-medium">About</Link>
-            <Link href="/how-it-works" className="text-gray-600 hover:text-blue-900 transition font-medium">How It Works</Link>
-            
-            {/* Features Dropdown */}
             <div className="relative group">
               <button 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
-                className="flex items-center text-gray-600 hover:text-blue-900 transition font-medium focus:outline-none"
+                className="flex items-center px-4 py-2 bg-gray-50 text-blue-900 rounded-lg border border-gray-200 hover:bg-gray-100 transition font-bold focus:outline-none"
               >
-                Features
-                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                Menu
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
               </button>
               
-              {isDropdownOpen && (
-                <div 
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
-                  className="absolute left-0 mt-0 w-48 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50"
-                >
-                  <Link href="/investment-plans" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900">Investment Plans</Link>
-                  <Link href="/security" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900">Security & Assets</Link>
-                  <Link href="/faq" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900">Support FAQ</Link>
-                </div>
-              )}
+              <div 
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+                className={`absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-2xl py-3 z-50 transition-all duration-200 ${isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
+              >
+                <Link href="/about" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">About Sentinel</Link>
+                <Link href="/how-it-works" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">How It Works</Link>
+                <div className="border-t border-gray-50 my-2 mx-4"></div>
+                <Link href="/investment-plans" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Investment Plans</Link>
+                <Link href="/security" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Security & Assets</Link>
+                <Link href="/faq" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Support FAQ</Link>
+                <Link href="/contact" className="block px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-blue-50 hover:text-blue-900">Contact Us</Link>
+              </div>
             </div>
-
-            <Link href="/contact" className="text-gray-600 hover:text-blue-900 transition font-medium">Contact</Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
