@@ -2,10 +2,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
-import heroBg from '@assets/stock_images/modern_glass_office__470b88e7.jpg';
-import vaultIcon from '@assets/generated_images/secure_cryptocurrency_vault_and_growth_icon.png';
 
 export default function Home() {
+  const heroBg = '/attached_assets/stock_images/modern_glass_office__470b88e7.jpg';
+  const vaultIcon = '/attached_assets/generated_images/secure_cryptocurrency_vault_and_growth_icon.png';
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
